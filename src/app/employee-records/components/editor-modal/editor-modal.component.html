@@ -1,0 +1,43 @@
+<form class="form-container">
+    <h2 class="form-title">{{enableEditMode? 'Edit Employee': 'Create Employee'}} Details</h2>
+    <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-control" type="text" placeholder="Enter name" name="name" id="name"
+            [(ngModel)]="employee.name">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="company">Company</label>
+        <input class="form-control" type="text" placeholder="Enter company" name="company" id="company"
+            [(ngModel)]="employee.company">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="email" placeholder="Enter email" name="email" id="email"
+            [(ngModel)]="employee.email">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="contactid">Contact Number</label>
+        <input class="form-control" type="number" placeholder="Enter contact number" name="contact" id="contactid"
+            [(ngModel)]="employee.contactNumber">
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="designation">Designation</label>
+        <select class="form-control" placeholder="Enter designation" name="designation" id="designation"
+            [(ngModel)]="employee.designation">
+            <option value="" disabled selected>Select Designation</option>
+            <option value="Technical Lead">Technical Lead</option>
+            <option value="Manager">Manager</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="Senior Software Developer">Senior Software Developer</option>
+        </select>
+    </div>
+</form>
+<div class="form-group-btns">
+    <button class="form-group-btn form-group-btn-add" type="button" *ngIf="!enableEditMode" (click)="addEmployee()">Add
+        Employee</button>
+    <button class="form-group-btn form-group-btn-add" type="button" *ngIf="enableEditMode"
+        (click)="updateEmployee()">Update
+        Employee</button>
+    <button class="form-group-btn form-group-btn-cancel" type="reset" (click)="cancelUpdate()">Cancel</button>
+</div>

@@ -1,0 +1,53 @@
+.ng-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    &-title {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #191919;
+    }
+
+    &-img {
+        width: 120px;
+    }
+}
+
+.ng-header-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &-search {
+        width: 180px;
+        height: 32px;
+        background-color: #fff;
+        border: 1px solid #c7c7c7;
+        padding: 3px 10px;
+        font-size: 14px;
+
+        &:hover,
+        &:focus {
+            border-color: #b6caff;
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    &-add {
+        height: 32px;
+        background-color: rgb(21, 133, 21);
+        border: 1px solid rgb(21, 133, 21);
+        padding: 3px 10px;
+        color: #fff;
+        font-size: 14px;
+
+        &:hover {
+            background-color: rgb(10, 117, 10);
+            border: 1px solid rgb(10, 117, 10);
+        }
+    }
+}
