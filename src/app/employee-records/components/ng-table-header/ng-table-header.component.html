@@ -1,0 +1,11 @@
+<header class="ng-table-header">
+    <h3 class="ng-table-header-title">
+        <img class="ng-table-header-img" src="./assets/images/logo.png" />
+        <span>Employee Records</span>
+    </h3>
+    <div class="ng-header-options">
+        <input class="ng-header-options-search" type="text" [(ngModel)]="searchText" placeholder="Search"
+            (input)="getResults()">
+        <button type="button" class="ng-header-options-add" (click)="addNewEmployee()">Add New Employee</button>
+    </div>
+</header>

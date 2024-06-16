@@ -1,0 +1,39 @@
+<ng-table-header (tableSearch)="searchTable($event)" (createRecord)="createEmployee()" />
+<table class="table-paginator">
+    <thead>
+        <tr>
+            @for (item of columns; track $index) {
+            <th>{{ item.label | titlecase }}</th>
+            }
+            <th rowspan="2">Options</th>
+        </tr>
+        <tr>
+            @for (item of columns; track $index) {
+            <th style="padding: 0;">
+                <input class="table-form-field" type="text" [attr.placeholder]="'Search by ' + item.label + '...'"
+                    (keyup)="filterColumnData($event, item.category)" />
+            </th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of records | filter: searchText; track $index) {
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.company }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.contactNumber }}</td>
+            <td>{{ item.designation }}</td>
+            <td>
+                <div class="ng-table-btns">
+                    <button class="ng-table-btn ng-table-btn-update" (click)="editEmployee(item)">Update</button>
+                    <button class="ng-table-btn ng-table-btn-remove" (click)="removeEmployee(item)">Delete</button>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<editor-modal [employee]="employee" [employeeCount]="records.length" [enableEditMode]="enableEditMode"
+    (closeModal)="closeModal()" *ngIf="enableEditor" />
